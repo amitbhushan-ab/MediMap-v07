@@ -207,6 +207,14 @@ const TEAM = [
     },
   },
   {
+    name: 'Parul Singh',
+    role: { en: 'Design Lead & CEO', hi: 'डिजाइन प्रमुख और सीईओ' },
+    duty: {
+      en: 'Designs the patient and pharmacist screens in both languages.',
+      hi: 'मरीज़ और फार्मासिस्ट की स्क्रीन दोनों भाषाओं में डिज़ाइन करती हैं।',
+    },
+  },
+  {
     name: 'Dhanveen Mehta',
     role: { en: 'Head of Technology & CTO', hi: 'तकनीकी प्रमुख और सीटीओ' },
     duty: {
@@ -215,7 +223,7 @@ const TEAM = [
     },
   },
   {
-    name: 'Mayank Bedi',
+    name: 'Ankit Pal',
     role: { en: 'Operations Lead & COO', hi: 'संचालन प्रमुख और सीओओ' },
     duty: {
       en: 'Runs counter onboarding and checks submitted stock against the shelf.',
@@ -223,11 +231,11 @@ const TEAM = [
     },
   },
   {
-    name: 'Parul Singh',
-    role: { en: 'Design Lead & CEO', hi: 'डिजाइन प्रमुख और सीईओ' },
+    name: 'Mayank Bedi',
+    role: { en: 'Product Lead & CPO', hi: 'उत्पाद प्रमुख और सीपीओ' },
     duty: {
-      en: 'Designs the patient and pharmacist screens in both languages.',
-      hi: 'मरीज़ और फार्मासिस्ट की स्क्रीन दोनों भाषाओं में डिज़ाइन करती हैं।',
+      en: 'Directs product strategy, search experience, and healthcare transparency.',
+      hi: 'उत्पाद रणनीति, खोज अनुभव और स्वास्थ्य सेवा पारदर्शिता का नेतृत्व करते हैं।',
     },
   },
 ];
@@ -375,7 +383,7 @@ export default function AboutPage() {
             description={t(COPY.teamBody)}
           />
 
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {TEAM.map((member) => (
               <CardSpotlight key={member.name} className="flex h-full flex-col p-5">
                 <span
@@ -389,6 +397,15 @@ export default function AboutPage() {
                 <p className="mt-2 flex-1 text-xs leading-relaxed text-muted">{t(member.duty)}</p>
               </CardSpotlight>
             ))}
+          </div>
+
+          <div className="mt-5 rounded-card border border-line bg-raised/50 p-4 text-center sm:p-5">
+            <p className="text-xs leading-relaxed text-muted">
+              {t({
+                en: 'Powered by our extended team of frontend and systems engineers, verified partner pharmacists, on-ground field scouts, and community volunteers across Delhi-NCR.',
+                hi: 'दिल्ली-एनसीआर में हमारे फ्रंटएंड और सिस्टम इंजीनियरों, सत्यापित भागीदार फार्मासिस्टों, जमीनी फील्ड स्काउट्स और सामुदायिक स्वयंसेवकों की विस्तारित टीम द्वारा संचालित।',
+              })}
+            </p>
           </div>
         </Container>
       </Section>
