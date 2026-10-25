@@ -266,6 +266,11 @@ function startAutoRefillScheduler() {
   let bootTimer = null;
 
   async function run(label) {
+    const mongoose = require('mongoose');
+    if (mongoose.connection.readyState !== 1) {
+      console.log('⏱ Auto refill reminders (' + label + ') skipped: MongoDB is not connected');
+      return;
+    }
     try {
       const summary = await runAutoRefillReminders();
       console.log(

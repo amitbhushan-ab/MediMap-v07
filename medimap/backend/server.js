@@ -37,10 +37,11 @@ async function connectDB() {
     }
   } else {
     try {
-      await mongoose.connect(uri);
+      await mongoose.connect(uri, { serverSelectionTimeoutMS: 5000 });
       console.log('✅ Cloud MongoDB connected');
     } catch (err) {
       console.error('❌ Cloud MongoDB connection failed:', err.message);
+      console.log('👉 Tip: Ensure your MongoDB Atlas Network Access has 0.0.0.0/0 (Allow access from anywhere) enabled.');
     }
   }
 
@@ -58,9 +59,13 @@ async function connectDB() {
     require('./models/Notification');
     require('./models/User');
 
-    // One-time seed
-    const { seedIfEmpty } = require('./data/seed');
-    await seedIfEmpty();
+    // One-time seed only if connected
+    if (mongoose.connection.readyState === 1) {
+      const { seedIfEmpty } = require('./data/seed');
+      await seedIfEmpty();
+    } else {
+      console.log('ℹ️ Skipping initial seed: MongoDB is not connected yet.');
+    }
   } catch (err) {
     console.warn('⚠️ Model registration / seed note:', err.message);
   }
@@ -75,7 +80,7 @@ connectDB()
       console.warn('⚠️ Auto-refill scheduler:', err.message);
     }
   })
-  .catch(err => console.log('⚠️ MongoDB not connected:', err.message));
+  .catch(err => console.log('⚠️ MongoDB connect error:', err.message));
 
 // ── API Routes ────────────────────────────────────────────────
 app.use('/api/users',           require('./routes/users'));
@@ -92,23 +97,28 @@ app.use('/api/points',          require('./routes/points'));
 app.use('/api/prescription',    require('./routes/prescriptionRoutes'));
 app.use('/api/bridge',          require('./routes/bridge'));
 
+// ── Health Check (Render Deployment Health Route) ──────────────
+// Must always return 200 immediately without blocking on pending DB connections
 app.get('/api/health', async (req, res) => {
   let info = {};
-  try {
-    const Pharmacist = require('./models/Pharmacist');
-    const PriceRequest = require('./models/PriceRequest');
-    const Bill = require('./models/Bill');
-    const Supplier = require('./models/Supplier');
-    const RegularCustomer = require('./models/RegularCustomer');
-    info = {
-      pharmacists: await Pharmacist.countDocuments(),
-      pendingRequests: await PriceRequest.countDocuments({ status:'pending' }),
-      bills: await Bill.countDocuments(),
-      suppliers: await Supplier.countDocuments(),
-      customers: await RegularCustomer.countDocuments(),
-    };
-  } catch {}
-  res.json({
+  if (mongoose.connection.readyState === 1) {
+    try {
+      const Pharmacist = require('./models/Pharmacist');
+      const PriceRequest = require('./models/PriceRequest');
+      const Bill = require('./models/Bill');
+      const Supplier = require('./models/Supplier');
+      const RegularCustomer = require('./models/RegularCustomer');
+      info = {
+        pharmacists: await Pharmacist.countDocuments(),
+        pendingRequests: await PriceRequest.countDocuments({ status:'pending' }),
+        bills: await Bill.countDocuments(),
+        suppliers: await Supplier.countDocuments(),
+        customers: await RegularCustomer.countDocuments(),
+      };
+    } catch {}
+  }
+
+  res.status(200).json({
     status: 'ok',
     db: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
     ...info,
