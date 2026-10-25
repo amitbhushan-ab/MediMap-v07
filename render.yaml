@@ -34,7 +34,6 @@ services:
   - type: web
     name: medimap-frontend
     runtime: static
-    plan: free
     rootDir: medimap/frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
