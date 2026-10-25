@@ -207,14 +207,6 @@ const TEAM = [
     },
   },
   {
-    name: 'Parul Singh',
-    role: { en: 'Design Lead & CEO', hi: 'डिजाइन प्रमुख और सीईओ' },
-    duty: {
-      en: 'Designs the patient and pharmacist screens in both languages.',
-      hi: 'मरीज़ और फार्मासिस्ट की स्क्रीन दोनों भाषाओं में डिज़ाइन करती हैं।',
-    },
-  },
-  {
     name: 'Dhanveen Mehta',
     role: { en: 'Head of Technology & CTO', hi: 'तकनीकी प्रमुख और सीटीओ' },
     duty: {
@@ -228,6 +220,14 @@ const TEAM = [
     duty: {
       en: 'Runs counter onboarding and checks submitted stock against the shelf.',
       hi: 'काउंटर जोड़ने का काम चलाते हैं और भेजा गया स्टॉक शेल्फ से मिलाते हैं।',
+    },
+  },
+  {
+    name: 'Parul Singh',
+    role: { en: 'Design Lead & CEO', hi: 'डिजाइन प्रमुख और सीईओ' },
+    duty: {
+      en: 'Designs the patient and pharmacist screens in both languages.',
+      hi: 'मरीज़ और फार्मासिस्ट की स्क्रीन दोनों भाषाओं में डिज़ाइन करती हैं।',
     },
   },
   {
