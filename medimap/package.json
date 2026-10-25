@@ -1,0 +1,15 @@
+{
+  "name": "medimap",
+  "version": "1.0.0",
+  "description": "MediMap - Healthcare Price Transparency Platform",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "check": "cd frontend && npm run check"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

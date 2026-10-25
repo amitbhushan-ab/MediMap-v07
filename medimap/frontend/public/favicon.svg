@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="appleSquircleGrad" x1="16" y1="12" x2="108" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6754fe"/>
+      <stop offset="42%" stop-color="#533afd"/>
+      <stop offset="78%" stop-color="#432bd8"/>
+      <stop offset="100%" stop-color="#2e19a6"/>
+    </linearGradient>
+    <radialGradient id="appleCenterGlow" cx="50%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32"/>
+      <stop offset="50%" stop-color="#8d7eff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#533afd" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="appleRimHighlight" x1="60" y1="2" x2="60" y2="118" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="35%" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="75%" stop-color="#ffffff" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="appleCapsuleHoriz" x1="28" y1="52" x2="92" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#f0ecff" stop-opacity="0.92"/>
+    </linearGradient>
+    <linearGradient id="applePinVertical" x1="60" y1="24" x2="60" y2="98" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.98"/>
+      <stop offset="65%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#dcd4ff" stop-opacity="0.88"/>
+    </linearGradient>
+    <linearGradient id="appleVitalityRuby" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff4d79"/>
+      <stop offset="100%" stop-color="#ea2261"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Apple G2 Continuous Curvature Squircle -->
+  <path d="M 60,2 C 86,2 110,6 116,24 C 122,42 118,78 116,96 C 110,114 86,118 60,118 C 34,118 10,114 4,96 C -2,78 2,42 4,24 C 10,6 34,2 60,2 Z" fill="url(#appleSquircleGrad)"/>
+  <path d="M 60,2 C 86,2 110,6 116,24 C 122,42 118,78 116,96 C 110,114 86,118 60,118 C 34,118 10,114 4,96 C -2,78 2,42 4,24 C 10,6 34,2 60,2 Z" fill="url(#appleCenterGlow)"/>
+  <path d="M 60,3.5 C 85,3.5 108,7.5 114,24.5 C 120,41.5 116.5,77.5 114,94.5 C 108,111.5 85,116.5 60,116.5 C 35,116.5 12,111.5 6,94.5 C 0,77.5 3.5,41.5 6,24.5 C 12,7.5 35,3.5 60,3.5 Z" stroke="url(#appleRimHighlight)" stroke-width="1.75" fill="none"/>
+  
+  <ellipse cx="60" cy="20" rx="36" ry="10" fill="#ffffff" fill-opacity="0.14"/>
+
+  <!-- Vertical Map Pin Tapered Body -->
+  <path d="M 49,36 C 49,29.92 53.92,25 60,25 C 66.08,25 71,29.92 71,36 L 71,64 C 71,73.5 65.5,84 61.8,91.8 C 61.0,93.5 59.0,93.5 58.2,91.8 C 54.5,84 49,73.5 49,64 Z" fill="url(#applePinVertical)"/>
+
+  <!-- Horizontal Medicine Capsule -->
+  <rect x="24" y="42" width="72" height="22" rx="11" fill="url(#appleCapsuleHoriz)"/>
+  <line x1="60" y1="43" x2="60" y2="63" stroke="#533afd" stroke-opacity="0.16" stroke-width="1.5" stroke-linecap="round"/>
+  <rect x="54" y="47" width="12" height="12" rx="3.5" fill="#533afd" fill-opacity="0.10"/>
+
+  <!-- Core Beacon Pulse -->
+  <circle cx="60" cy="53" r="6.5" fill="#533afd"/>
+  <circle cx="60" cy="53" r="3" fill="#ffffff"/>
+
+  <!-- Satellite Live Verification Beacon -->
+  <circle cx="89" cy="31" r="6" fill="url(#appleVitalityRuby)"/>
+  <circle cx="89" cy="31" r="7.5" stroke="#ffffff" stroke-opacity="0.85" stroke-width="1.5" fill="none"/>
+  <circle cx="87.5" cy="29.5" r="1.8" fill="#ffffff" fill-opacity="0.8"/>
+</svg>

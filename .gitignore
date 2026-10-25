@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+*/node_modules/
+*/*/node_modules/
+.pnp
+.pnp.js
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+*.env
+
+# Production build outputs
+dist/
+build/
+*/dist/
+*/*/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.audit-server.log
+.build.log
+.check.log
+.contrast.log
+.dev.log
+.smoke.log
+
+# Browser profiles, screenshots & test dumps
+.chrome-profile/
+.chrome-profile*/
+.edge-profile/
+.registry/
+shots/
+*.tw-check.css
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor caches
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
