@@ -1,4 +1,21 @@
 {
+  "name": "medimap-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MediMap Healthcare Platform - Render Deployment Ready",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "install:backend": "npm --prefix medimap/backend install",
+    "install:frontend": "npm --prefix medimap/frontend install",
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "build:frontend": "npm --prefix medimap/frontend run build",
+    "build": "npm run install:all && npm run build:frontend",
+    "start": "node medimap/backend/server.js",
+    "dev": "npm --prefix medimap run dev",
+    "check": "npm --prefix medimap/frontend run check"
+  },
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "jsonwebtoken": "^9.0.3",
