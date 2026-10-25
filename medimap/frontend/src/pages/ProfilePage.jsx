@@ -130,7 +130,7 @@ const COPY = {
   claimedVouchers: { en: 'Claimed vouchers', hi: 'मिले कूपन' },
   noVouchers: { en: 'No vouchers claimed yet.', hi: 'अभी कोई कूपन नहीं मिला।' },
   pointsError: {
-    en: 'Points could not be loaded. Check the connection and reload the page.',
+    en: 'Point could not be loaded. Check the connection and reload the page.',
     hi: 'पॉइंट्स लोड नहीं हो सके। कनेक्शन देखकर पेज फिर खोलें।',
   },
 };
